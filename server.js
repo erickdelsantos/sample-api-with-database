@@ -1,10 +1,10 @@
-var express = require('express')
-var md5 = require("md5")
-var bodyParser = require("body-parser");
-var db = require('./database.js')
+const express = require('express')
+const md5 = require("md5")
+const bodyParser = require("body-parser");
+const db = require('./database.js')
 
 
-var app = express()
+const app = express()
 app.use( bodyParser.urlencoded({ extended: false }) );
 app.use( bodyParser.json() );
 
@@ -93,8 +93,8 @@ app.get("/api/users", (req, res, next) => {
 // Return single user information
 app.get("/api/user/:id", (req, res, next) => {
 
-    var sql = "SELECT * FROM users WHERE id = ?"
-    var params = [req.params.id]
+    const sql = "SELECT * FROM users WHERE id = ?"
+    let params = [req.params.id]
 
     db.get(sql, params, (err, row) => {
 
@@ -120,7 +120,7 @@ app.get("/api/user/:id", (req, res, next) => {
 // Create new user
 app.post("/api/user/", (req, res, next) => {
 
-    var errors = [];
+    let errors = [];
 
     if ( !req.body.name ) {
     
@@ -153,7 +153,7 @@ app.post("/api/user/", (req, res, next) => {
 
     }
 
-    var data = {
+    let data = {
 
         name: req.body.name,
         email: req.body.email,
@@ -161,9 +161,9 @@ app.post("/api/user/", (req, res, next) => {
 
     }
 
-    var query ='INSERT INTO users (name, email, password) VALUES (?, ?, ?)';
+    const query ='INSERT INTO users (name, email, password) VALUES (?, ?, ?)';
 
-    var params =[data.name, data.email, data.password];
+    let params =[data.name, data.email, data.password];
     
     db.run(query, params, function (err, result) {
 
@@ -190,7 +190,7 @@ app.post("/api/user/", (req, res, next) => {
 // Update user information
 app.patch("/api/user/:id", (req, res, next) => {
 
-    var data = {
+    let data = {
 
         name: req.body.name,
         email: req.body.email,
