@@ -1,0 +1,19 @@
+{
+  "name": "sample-api-with-database",
+  "version": "1.0.0",
+  "description": "Sample app to test dealing with database and outputting results through API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Erick Delgado Santos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "md5": "^2.3.0",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
