@@ -90,33 +90,6 @@ app.get("/api/users", (req, res, next) => {
 });
 
 
-// Return single user information
-app.get("/api/user/:id", (req, res, next) => {
-
-    const sql = "SELECT * FROM users WHERE id = ?"
-    let params = [req.params.id]
-
-    db.get(sql, params, (err, row) => {
-
-        if (err) {
-
-          res.status(400).json({ "error": err.message });
-          return;
-
-        }
-        
-        res.json({
-
-            "message": "success",
-            "data": row
-
-        })
-
-    });
-
-});
-
-
 // Create new user
 app.post("/api/user/", (req, res, next) => {
 
@@ -185,6 +158,33 @@ app.post("/api/user/", (req, res, next) => {
     });
 
 })
+
+
+// Return single user information
+app.get("/api/user/:id", (req, res, next) => {
+
+    const sql = "SELECT * FROM users WHERE id = ?"
+    let params = [req.params.id]
+
+    db.get(sql, params, (err, row) => {
+
+        if (err) {
+
+          res.status(400).json({ "error": err.message });
+          return;
+
+        }
+        
+        res.json({
+
+            "message": "success",
+            "data": row
+
+        })
+
+    });
+
+});
 
 
 // Update user information

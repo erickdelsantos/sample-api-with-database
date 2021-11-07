@@ -14,6 +14,13 @@ Accepts:
 Accepts:
 **GET** Return user list. Accept output=html query param to return the output in a HTML table instead of JSON. (Ex.: http://localhost:3000/api/users?output=html)
 
-`/api/user/**user_id**`
+`/api/user`
 Accepts:
-**GET** Re
+**POST** Create new user (data must must sent in URL encoded format).
+
+`/api/user/[user_id]`
+*Always replace [userid] with the user Id you want to manipulate.*
+Accepts:
+**GET** Return user data.
+**PATCH** Updates users data (data must must sent in URL encoded format).
+**DELETE** Deletes user data.
