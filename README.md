@@ -2,7 +2,7 @@
 The goal of this small sample project is to demonstrate how to deal with basic database operations through API endpoints.
 
 Erick Delgado Santos
-### Moules used
+### Modules used
 It's based on SQLite and Express.
 
 ### Endpoints
